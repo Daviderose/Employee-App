@@ -1,0 +1,6 @@
+<app-applicant
+  *ngFor="let applicant of applicants"
+  [applicant]="applicant"
+  (deleteApplicant)="deleteApplicant($event)"
+>
+</app-applicant>
