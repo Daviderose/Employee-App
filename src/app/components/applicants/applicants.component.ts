@@ -19,7 +19,17 @@ export class ApplicantsComponent implements OnInit {
   }
 
   deleteApplicant(applicant: ApplicantModel) {
+    // Remove from UI
     this.applicants = this.applicants.filter(t => t.id !== applicant.id);
+
+    // Remove from Server
+    this.applicantService.deleteApplicant(applicant).subscribe();
+  }
+
+  addApplicant(applicant: ApplicantModel) {
+    this.applicantService.addApplicant(applicant).subscribe( applicant => {
+      this.applicants.push(applicant);
+    });
   }
 
 }

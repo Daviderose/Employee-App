@@ -22,6 +22,10 @@ export class ApplicantService {
     return this.http.get<ApplicantModel[]>(this.applicantsUrl);
   }
 
+  addApplicant(applicant: ApplicantModel): Observable<ApplicantModel> {
+    return this.http.post<ApplicantModel>(this.applicantsUrl, applicant, httpOptions);
+  }
+
   deleteApplicant(applicant: ApplicantModel): Observable<ApplicantModel> {
     const url = `${this.applicantsUrl}/${applicant.id}`;
     return this.http.delete<ApplicantModel>(url, httpOptions);
